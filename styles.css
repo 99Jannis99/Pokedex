@@ -1,0 +1,1011 @@
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Dosis", sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+body nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  gap: 20px;
+  position: fixed;
+  width: 100vw;
+  z-index: 9999;
+}
+@media screen and (max-width: 600px) {
+  body nav {
+    flex-direction: column;
+  }
+}
+body nav .logo {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+}
+body nav .logo .logo-animation {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+}
+body nav .logo span {
+  font-size: 20px;
+  font-weight: bold;
+}
+body nav .search-container {
+  display: flex;
+  align-items: center;
+}
+body nav .search-container input[type=text] {
+  padding: 5px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+}
+body nav .search-container button {
+  padding: 6px 10px;
+  margin-left: 5px;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+body nav .search-container button:hover {
+  background-color: #777;
+}
+body .content-container {
+  display: flex;
+  flex-direction: column;
+}
+body .content-container .loading {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+body .content-container .loading dotlottie-player {
+  width: 300px;
+  height: 300px;
+}
+body .content-container .loading_deactive {
+  display: none;
+}
+body .content-container .pokedex {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1060px;
+  margin-top: 70px;
+}
+@media screen and (max-width: 600px) {
+  body .content-container .pokedex {
+    margin-top: 120px;
+  }
+}
+body .content-container .pokedex .card {
+  width: 250px;
+  height: -moz-fit-content;
+  height: fit-content;
+  background: #333333;
+  position: relative;
+  display: grid;
+  place-content: center;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+body .content-container .pokedex .card .border {
+  position: absolute;
+  inset: 0px;
+  border: 2px solid #bd9f67;
+  opacity: 0;
+  transform: rotate(10deg);
+  transition: all 0.5s ease-in-out;
+}
+body .content-container .pokedex .card .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  padding: 40px;
+}
+body .content-container .pokedex .card .content .type {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+}
+body .content-container .pokedex .card .content img {
+  border-radius: 15px;
+  width: 150px;
+  background-color: rgba(255, 255, 255, 0.5);
+  aspect-ratio: 1/1;
+}
+body .content-container .pokedex .card .content .info {
+  display: flex;
+  gap: 20px;
+}
+body .content-container .pokedex .card .bottom-text {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  font-size: 7px;
+  text-transform: uppercase;
+  padding: 0px 5px 0px 8px;
+  color: #333333;
+  border-radius: 15px;
+  padding: 5px;
+  opacity: 0;
+  letter-spacing: 7px;
+  transition: all 0.5s ease-in-out;
+}
+body .content-container .pokedex .card:hover {
+  border-radius: 0;
+  transform: scale(1.1);
+}
+body .content-container .pokedex .card:hover .border {
+  inset: 15px;
+  opacity: 1;
+  transform: rotate(0);
+}
+body .content-container .pokedex .card:hover .bottom-text {
+  letter-spacing: 3px;
+  opacity: 1;
+  transform: translateX(-50%);
+}
+body .content-container .pokedex .grass {
+  background: #78c850;
+}
+body .content-container .pokedex .grass .border {
+  border: 2px solid #a8b820;
+}
+body .content-container .pokedex .grass .bottom-text {
+  background: #a8b820;
+}
+body .content-container .pokedex .grass a.active {
+  background: #78c850;
+}
+body .content-container .pokedex .grass svg .svg_color {
+  fill: #78c850;
+}
+body .content-container .pokedex .fire {
+  background: #f08030;
+}
+body .content-container .pokedex .fire .border {
+  border: 2px solid #f8a878;
+}
+body .content-container .pokedex .fire .bottom-text {
+  background: #f8a878;
+}
+body .content-container .pokedex .fire a.active {
+  background: #f08030;
+}
+body .content-container .pokedex .fire svg .svg_color {
+  fill: #f08030;
+}
+body .content-container .pokedex .water {
+  background: #6890f0;
+}
+body .content-container .pokedex .water .border {
+  border: 2px solid #98d8d8;
+}
+body .content-container .pokedex .water .bottom-text {
+  background: #98d8d8;
+}
+body .content-container .pokedex .water a.active {
+  background: #6890f0;
+}
+body .content-container .pokedex .water svg .svg_color {
+  fill: #6890f0;
+}
+body .content-container .pokedex .electric {
+  background: #f8d030;
+}
+body .content-container .pokedex .electric .border {
+  border: 2px solid #f8e030;
+}
+body .content-container .pokedex .electric .bottom-text {
+  background: #f8e030;
+}
+body .content-container .pokedex .electric a.active {
+  background: #f8d030;
+}
+body .content-container .pokedex .electric svg .svg_color {
+  fill: #f8d030;
+}
+body .content-container .pokedex .ice {
+  background: #98d8d8;
+}
+body .content-container .pokedex .ice .border {
+  border: 2px solid #b8b8d0;
+}
+body .content-container .pokedex .ice .bottom-text {
+  background: #b8b8d0;
+}
+body .content-container .pokedex .ice a.active {
+  background: #98d8d8;
+}
+body .content-container .pokedex .ice svg .svg_color {
+  fill: #98d8d8;
+}
+body .content-container .pokedex .fighting {
+  background: #c03028;
+}
+body .content-container .pokedex .fighting .border {
+  border: 2px solid #d67873;
+}
+body .content-container .pokedex .fighting .bottom-text {
+  background: #d67873;
+}
+body .content-container .pokedex .fighting a.active {
+  background: #c03028;
+}
+body .content-container .pokedex .fighting svg .svg_color {
+  fill: #c03028;
+}
+body .content-container .pokedex .poison {
+  background: #a040a0;
+}
+body .content-container .pokedex .poison .border {
+  border: 2px solid #c183c1;
+}
+body .content-container .pokedex .poison .bottom-text {
+  background: #c183c1;
+}
+body .content-container .pokedex .poison a.active {
+  background: #a040a0;
+}
+body .content-container .pokedex .poison svg .svg_color {
+  fill: #a040a0;
+}
+body .content-container .pokedex .ground {
+  background: #e0c068;
+}
+body .content-container .pokedex .ground .border {
+  border: 2px solid #ebd69d;
+}
+body .content-container .pokedex .ground .bottom-text {
+  background: #ebd69d;
+}
+body .content-container .pokedex .ground a.active {
+  background: #e0c068;
+}
+body .content-container .pokedex .ground svg .svg_color {
+  fill: #e0c068;
+}
+body .content-container .pokedex .flying {
+  background: #a890f0;
+}
+body .content-container .pokedex .flying .border {
+  border: 2px solid #c6b7f5;
+}
+body .content-container .pokedex .flying .bottom-text {
+  background: #c6b7f5;
+}
+body .content-container .pokedex .flying a.active {
+  background: #a890f0;
+}
+body .content-container .pokedex .flying svg .svg_color {
+  fill: #a890f0;
+}
+body .content-container .pokedex .psychic {
+  background: #f85888;
+}
+body .content-container .pokedex .psychic .border {
+  border: 2px solid #fa92b2;
+}
+body .content-container .pokedex .psychic .bottom-text {
+  background: #fa92b2;
+}
+body .content-container .pokedex .psychic a.active {
+  background: #f85888;
+}
+body .content-container .pokedex .psychic svg .svg_color {
+  fill: #f85888;
+}
+body .content-container .pokedex .bug {
+  background: #a8b820;
+}
+body .content-container .pokedex .bug .border {
+  border: 2px solid #c6d16e;
+}
+body .content-container .pokedex .bug .bottom-text {
+  background: #c6d16e;
+}
+body .content-container .pokedex .bug a.active {
+  background: #a8b820;
+}
+body .content-container .pokedex .bug svg .svg_color {
+  fill: #a8b820;
+}
+body .content-container .pokedex .rock {
+  background: #b8a038;
+}
+body .content-container .pokedex .rock .border {
+  border: 2px solid #d1c17d;
+}
+body .content-container .pokedex .rock .bottom-text {
+  background: #d1c17d;
+}
+body .content-container .pokedex .rock a.active {
+  background: #b8a038;
+}
+body .content-container .pokedex .rock svg .svg_color {
+  fill: #b8a038;
+}
+body .content-container .pokedex .ghost {
+  background: #705898;
+}
+body .content-container .pokedex .ghost .border {
+  border: 2px solid #a292bc;
+}
+body .content-container .pokedex .ghost .bottom-text {
+  background: #a292bc;
+}
+body .content-container .pokedex .ghost a.active {
+  background: #705898;
+}
+body .content-container .pokedex .ghost svg .svg_color {
+  fill: #705898;
+}
+body .content-container .pokedex .dragon {
+  background: #7038f8;
+}
+body .content-container .pokedex .dragon .border {
+  border: 2px solid #a27dfa;
+}
+body .content-container .pokedex .dragon .bottom-text {
+  background: #a27dfa;
+}
+body .content-container .pokedex .dragon a.active {
+  background: #7038f8;
+}
+body .content-container .pokedex .dragon svg .svg_color {
+  fill: #7038f8;
+}
+body .content-container .pokedex .dark {
+  background: #705848;
+}
+body .content-container .pokedex .dark .border {
+  border: 2px solid #a29288;
+}
+body .content-container .pokedex .dark .bottom-text {
+  background: #a29288;
+}
+body .content-container .pokedex .dark a.active {
+  background: #705848;
+}
+body .content-container .pokedex .dark svg .svg_color {
+  fill: #705848;
+}
+body .content-container .pokedex .steel {
+  background: #b8b8d0;
+}
+body .content-container .pokedex .steel .border {
+  border: 2px solid #d1d1e0;
+}
+body .content-container .pokedex .steel .bottom-text {
+  background: #d1d1e0;
+}
+body .content-container .pokedex .steel a.active {
+  background: #b8b8d0;
+}
+body .content-container .pokedex .steel svg .svg_color {
+  fill: #b8b8d0;
+}
+body .content-container .pokedex .fairy {
+  background: #ee99ac;
+}
+body .content-container .pokedex .fairy .border {
+  border: 2px solid #f4bdc9;
+}
+body .content-container .pokedex .fairy .bottom-text {
+  background: #f4bdc9;
+}
+body .content-container .pokedex .fairy a.active {
+  background: #ee99ac;
+}
+body .content-container .pokedex .fairy svg .svg_color {
+  fill: #ee99ac;
+}
+body .content-container .pokedex .normal {
+  background: #a8a878;
+}
+body .content-container .pokedex .normal .border {
+  border: 2px solid #c6c6a7;
+}
+body .content-container .pokedex .normal .bottom-text {
+  background: #c6c6a7;
+}
+body .content-container .pokedex .normal a.active {
+  background: #a8a878;
+}
+body .content-container .pokedex .normal svg .svg_color {
+  fill: #a8a878;
+}
+body .content-container #pokemon-details-section {
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+body .content-container #pokemon-details-section .splide .splide__arrows .splide__arrow {
+  background-color: #333333;
+  height: 50px;
+  width: 50px;
+}
+@media (max-width: 644px) {
+  body .content-container #pokemon-details-section .splide .splide__arrows .splide__arrow {
+    height: 40px;
+    width: 40px;
+  }
+}
+body .content-container #pokemon-details-section .splide .splide__arrows .splide__arrow--prev {
+  left: calc(50% - 600px);
+}
+@media (max-width: 1222px) {
+  body .content-container #pokemon-details-section .splide .splide__arrows .splide__arrow--prev {
+    left: calc(50% - 460px);
+  }
+}
+@media (max-width: 930px) {
+  body .content-container #pokemon-details-section .splide .splide__arrows .splide__arrow--prev {
+    left: calc(50% - 320px);
+  }
+}
+@media (max-width: 644px) {
+  body .content-container #pokemon-details-section .splide .splide__arrows .splide__arrow--prev {
+    left: 10px;
+  }
+}
+body .content-container #pokemon-details-section .splide .splide__arrows .splide__arrow--next {
+  right: calc(50% - 600px);
+}
+@media (max-width: 1222px) {
+  body .content-container #pokemon-details-section .splide .splide__arrows .splide__arrow--next {
+    right: calc(50% - 460px);
+  }
+}
+@media (max-width: 930px) {
+  body .content-container #pokemon-details-section .splide .splide__arrows .splide__arrow--next {
+    right: calc(50% - 320px);
+  }
+}
+@media (max-width: 644px) {
+  body .content-container #pokemon-details-section .splide .splide__arrows .splide__arrow--next {
+    right: 10px;
+  }
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .header {
+  position: relative;
+  padding: 20px 20px 0 20px;
+  border-radius: 15px 15px 0 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  gap: 100px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .header svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .header .id_container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .header .id_container h2 {
+  color: white;
+  margin: 0;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .header .id_container .id {
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: end;
+  background-color: rgba(255, 255, 255, 0.5);
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 10px;
+  border-radius: 15px;
+  margin: 0;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .header .content_details {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .header .content_details .types {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .header .content_details .types .type {
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 10px;
+  border-radius: 15px;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .header .content_details img {
+  width: 50%;
+  max-width: 150px;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .slider {
+  background-color: white;
+  padding: 20px;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .slider .themes {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .slider .themes a {
+  display: block;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  color: #333333;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .slider .themes a.active {
+  color: white;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .slider .splide {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .slider .splide .splide__track {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .slider .splide .splide__track .splide__list {
+  width: 300px;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .slider .splide .splide__track .splide__list .splide__slide {
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-height: 320px;
+  overflow-y: auto;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .slider .splide .splide__track .splide__list .splide__slide ul {
+  padding: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .slider .splide .splide__track .splide__list .splide__slide ul li {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .slider .splide .splide__track .splide__list .splide__slide ul li img {
+  max-width: 90px;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .grass {
+  background: #78c850;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .grass .border {
+  border: 2px solid #a8b820;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .grass .bottom-text {
+  background: #a8b820;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .grass a.active {
+  background: #78c850;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .grass svg .svg_color {
+  fill: #78c850;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .fire {
+  background: #f08030;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .fire .border {
+  border: 2px solid #f8a878;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .fire .bottom-text {
+  background: #f8a878;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .fire a.active {
+  background: #f08030;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .fire svg .svg_color {
+  fill: #f08030;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .water {
+  background: #6890f0;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .water .border {
+  border: 2px solid #98d8d8;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .water .bottom-text {
+  background: #98d8d8;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .water a.active {
+  background: #6890f0;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .water svg .svg_color {
+  fill: #6890f0;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .electric {
+  background: #f8d030;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .electric .border {
+  border: 2px solid #f8e030;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .electric .bottom-text {
+  background: #f8e030;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .electric a.active {
+  background: #f8d030;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .electric svg .svg_color {
+  fill: #f8d030;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .ice {
+  background: #98d8d8;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .ice .border {
+  border: 2px solid #b8b8d0;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .ice .bottom-text {
+  background: #b8b8d0;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .ice a.active {
+  background: #98d8d8;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .ice svg .svg_color {
+  fill: #98d8d8;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .fighting {
+  background: #c03028;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .fighting .border {
+  border: 2px solid #d67873;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .fighting .bottom-text {
+  background: #d67873;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .fighting a.active {
+  background: #c03028;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .fighting svg .svg_color {
+  fill: #c03028;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .poison {
+  background: #a040a0;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .poison .border {
+  border: 2px solid #c183c1;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .poison .bottom-text {
+  background: #c183c1;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .poison a.active {
+  background: #a040a0;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .poison svg .svg_color {
+  fill: #a040a0;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .ground {
+  background: #e0c068;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .ground .border {
+  border: 2px solid #ebd69d;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .ground .bottom-text {
+  background: #ebd69d;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .ground a.active {
+  background: #e0c068;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .ground svg .svg_color {
+  fill: #e0c068;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .flying {
+  background: #a890f0;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .flying .border {
+  border: 2px solid #c6b7f5;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .flying .bottom-text {
+  background: #c6b7f5;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .flying a.active {
+  background: #a890f0;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .flying svg .svg_color {
+  fill: #a890f0;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .psychic {
+  background: #f85888;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .psychic .border {
+  border: 2px solid #fa92b2;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .psychic .bottom-text {
+  background: #fa92b2;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .psychic a.active {
+  background: #f85888;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .psychic svg .svg_color {
+  fill: #f85888;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .bug {
+  background: #a8b820;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .bug .border {
+  border: 2px solid #c6d16e;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .bug .bottom-text {
+  background: #c6d16e;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .bug a.active {
+  background: #a8b820;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .bug svg .svg_color {
+  fill: #a8b820;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .rock {
+  background: #b8a038;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .rock .border {
+  border: 2px solid #d1c17d;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .rock .bottom-text {
+  background: #d1c17d;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .rock a.active {
+  background: #b8a038;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .rock svg .svg_color {
+  fill: #b8a038;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .ghost {
+  background: #705898;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .ghost .border {
+  border: 2px solid #a292bc;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .ghost .bottom-text {
+  background: #a292bc;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .ghost a.active {
+  background: #705898;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .ghost svg .svg_color {
+  fill: #705898;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .dragon {
+  background: #7038f8;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .dragon .border {
+  border: 2px solid #a27dfa;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .dragon .bottom-text {
+  background: #a27dfa;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .dragon a.active {
+  background: #7038f8;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .dragon svg .svg_color {
+  fill: #7038f8;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .dark {
+  background: #705848;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .dark .border {
+  border: 2px solid #a29288;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .dark .bottom-text {
+  background: #a29288;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .dark a.active {
+  background: #705848;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .dark svg .svg_color {
+  fill: #705848;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .steel {
+  background: #b8b8d0;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .steel .border {
+  border: 2px solid #d1d1e0;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .steel .bottom-text {
+  background: #d1d1e0;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .steel a.active {
+  background: #b8b8d0;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .steel svg .svg_color {
+  fill: #b8b8d0;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .fairy {
+  background: #ee99ac;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .fairy .border {
+  border: 2px solid #f4bdc9;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .fairy .bottom-text {
+  background: #f4bdc9;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .fairy a.active {
+  background: #ee99ac;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .fairy svg .svg_color {
+  fill: #ee99ac;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .normal {
+  background: #a8a878;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .normal .border {
+  border: 2px solid #c6c6a7;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .normal .bottom-text {
+  background: #c6c6a7;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .normal a.active {
+  background: #a8a878;
+}
+body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .normal svg .svg_color {
+  fill: #a8a878;
+}
+body .content-container .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+body .content-container .pagination button {
+  background-color: #333333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0 10px;
+  transition: background-color 0.3s;
+}
+body .content-container .pagination button:hover {
+  background-color: #e0e0e0;
+  color: #333333;
+}
+body .content-container .pagination button:disabled {
+  background-color: #e0e0e0;
+  color: #9e9e9e;
+  cursor: not-allowed;
+}
+body .content-container .pagination span {
+  font-size: 18px;
+  font-weight: 600;
+}
+@keyframes opacity {
+  0% {
+    border-right: 1px solid transparent;
+  }
+  10% {
+    border-right: 1px solid #bd9f67;
+  }
+  80% {
+    border-right: 1px solid #bd9f67;
+  }
+  100% {
+    border-right: 1px solid transparent;
+  }
+}
+@media (max-width: 540px) {
+  body .content-container p,
+  body .content-container a {
+    font-size: 10px;
+  }
+  body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details {
+    margin-top: 32px;
+  }
+  body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .header {
+    padding: 10px 10px 0 10px;
+    gap: 70px;
+  }
+  body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .header .id_container {
+    gap: 10px;
+  }
+  body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .header .id_container h2 {
+    font-size: 18px;
+  }
+  body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .header .id_container .id {
+    padding: 10px;
+  }
+  body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .header .content_details {
+    gap: 10px;
+  }
+  body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .header .content_details .types {
+    gap: 10px;
+  }
+  body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .header .content_details .types .type {
+    padding: 5px;
+  }
+  body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .slider {
+    padding: 10px;
+  }
+  body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .slider .themes {
+    margin-bottom: 10px;
+  }
+  body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .slider .themes a {
+    padding: 5px;
+  }
+  body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .slider .splide {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .slider .splide .splide__track {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .slider .splide .splide__track .splide__list {
+    width: 200px;
+  }
+  body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .slider .splide .splide__track .splide__list .splide__slide {
+    max-height: 240px;
+  }
+  body .content-container #pokemon-details-section .splide .splide__track .splide__list .splide__slide .pokemon_details .container .slider .splide .splide__track .splide__list .splide__slide ul li {
+    gap: 5px;
+  }
+}/*# sourceMappingURL=styles.css.map */

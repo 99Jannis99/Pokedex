@@ -1,0 +1,91 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <!-- Standard Meta-Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Suchmaschinenoptimierung (SEO) Meta-Tags -->
+    <meta name="description"
+        content="Entdecke alle Pokémon und ihre Details in unserem interaktiven Pokédex. Finde deinen Favoriten und erfahre mehr über Typen, Fähigkeiten und mehr.">
+    <meta name="keywords" content="Pokedex, Pokémon, Pokémon-Daten, Pokémon-Details, Pokémon-Typen">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Paul Gross">
+
+    <!-- Open Graph Meta-Tags für soziale Netzwerke -->
+    <meta property="og:title" content="Pokedex - Entdecke und Erfahre mehr über Pokémon">
+    <meta property="og:description"
+        content="Unser Pokédex bietet detaillierte Informationen zu jedem Pokémon. Erkunde ihre Typen, Fähigkeiten und mehr!">
+    <meta property="og:image" content="https://www.svgrepo.com/show/276264/pokeball-pokemon.svg">
+    <meta property="og:url" content="https://example.com">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+
+    <!-- Twitter Meta-Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pokedex - Entdecke und Erfahre mehr über Pokémon">
+    <meta name="twitter:description"
+        content="Finde alle Informationen zu Pokémon, ihre Typen, Fähigkeiten und mehr in unserem interaktiven Pokédex.">
+    <meta name="twitter:image" content="https://www.svgrepo.com/show/276264/pokeball-pokemon.svg">
+
+    <!-- Favicons -->
+    <link rel="icon" href="./assets/icon/favicon.svg" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./assets/icon/favicon.svg">
+
+    <!-- Fonts and Stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+
+    <title>Pokedex</title>
+</head>
+
+<body onload="init()">
+    <nav>
+        <a href="index.html" class="logo">
+            <dotlottie-player class="logo-animation" src="./assets/animations/logo.json" background="transparent"
+                speed="1" loop autoplay></dotlottie-player>
+            <span>Pokedex</span>
+        </a>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Suche...">
+            <button id="search-button">Suchen</button>
+        </div>
+    </nav>
+    <article class="content-container" id="content-container">
+        <section id="loading" class="loading">
+            <dotlottie-player src="./assets/animations/loading.json" background="transparent" speed="1" loop
+                autoplay></dotlottie-player>
+        </section>
+
+        <section id="pokedex" class="pokedex">
+        </section>
+
+        <section id="pokemon-details-section" style="display: none;">
+            <div id="pokemon-details-slider" class="splide">
+                <div class="splide__track">
+                    <ul id="pokemon-details-list" class="splide__list">
+                        <!-- Pokémon-Details werden hier dynamisch eingefügt -->
+                    </ul>
+                </div>
+            </div>
+            <!-- Schließen-Button -->
+            <!-- <button onclick="disclickPokemon()" class="close-button">Schließen</button> -->
+        </section>
+
+        <section id="pagination" class="pagination">
+        </section>
+    </article>
+    <script src="main.js"></script>
+    <script src="renderhtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+
+</body>
+
+</html>
